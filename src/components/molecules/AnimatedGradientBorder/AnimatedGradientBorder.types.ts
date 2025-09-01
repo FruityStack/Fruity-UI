@@ -1,4 +1,4 @@
-import { ThemeColors } from '@theme/types';
+import { ThemeColors } from '../../../theme/types';
 import { ViewStyle } from 'react-native';
 
 export interface AnimatedGradientBorderStyleProps {

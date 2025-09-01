@@ -1,5 +1,6 @@
 import deepmerge from "deepmerge";
-import { ComponentConfig, Theme } from "@theme/types";
+import { ComponentConfig, Theme } from "../types";
+import React from 'react';
 
 const arrayMerge: deepmerge.Options["arrayMerge"] = (_dest, source) => source;
 
@@ -14,6 +15,7 @@ const getMergedStyles = <
   variant?: TVariant,
   customStyle?: Partial<TStyles>
 ): TStyles => {
+  console.log(React.version);
   const comp = theme.components?.[componentKey] as ComponentConfig<TStyles, TVariant> | undefined;
 
   const fromBase = comp?.base ?? {};

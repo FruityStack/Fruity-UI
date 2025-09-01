@@ -1,6 +1,6 @@
-import { Theme } from "@theme/types";
+import { Theme } from "../../../theme/types";
 import { InputStyleProps } from "./Input.types";
-import { ViewStyle, TextStyle, TextInput } from "react-native";
+import { ViewStyle } from "react-native";
 
 export const defaultInputStyles = (theme: Theme): InputStyleProps => {
   return {

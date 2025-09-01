@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
-import { Theme, DeepPartial, ThemeContextType } from "@theme/types";
-import { darkTheme, defaultTheme } from "@theme/themes";
+import React, { createContext, useState, useMemo, useCallback } from "react";
+import { Theme, DeepPartial, ThemeContextType } from "../types";
+import { darkTheme, defaultTheme } from "../themes";
 
 function deepMerge<T>(target: T, source: DeepPartial<T>): T {
   const output = { ...target };
@@ -28,13 +28,10 @@ export const ThemeProvider: React.FC<{
   };
 }> = ({ children, overrides }) => {
   const [isDark, setIsDark] = useState(false);
-
   const baseTheme = isDark ? darkTheme : defaultTheme;
-  const appliedOverrides = isDark ? overrides?.dark || {} : overrides?.light || {};
-
-  const theme = deepMerge(baseTheme, appliedOverrides);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
-  return <ThemeContext.Provider value={{ theme, isDark, toggleTheme }}>{children}</ThemeContext.Provider>;
+  const appliedOverrides = useMemo(() => (isDark ? overrides?.dark || {} : overrides?.light || {}), [isDark, overrides?.dark, overrides?.light]);
+  const theme = useMemo(() => deepMerge(baseTheme, appliedOverrides), [baseTheme, appliedOverrides]);
+  const toggleTheme = useCallback(() => setIsDark((prev) => !prev), []);
+  const contextValue = useMemo(() => ({ theme, isDark, toggleTheme }), [theme, isDark, toggleTheme]);
+  return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };

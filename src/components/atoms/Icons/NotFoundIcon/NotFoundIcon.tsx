@@ -1,5 +1,4 @@
-import { Icon } from "@components/atoms";
-import React from "react";
+import { Icon } from "../../../atoms";
 
 type NotFoundIconProps = {
   name?: string;

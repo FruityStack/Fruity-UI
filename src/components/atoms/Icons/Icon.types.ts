@@ -1,5 +1,5 @@
 import { FontAwesome5, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { ThemeColors } from "@theme/types";
+import { ThemeColors } from "../../../theme/types";
 import { ViewStyle } from "react-native";
 
 export type IconVariant = "default" | "outlined" | "filled";

@@ -1,9 +1,7 @@
-import { TouchableOpacity, View, StyleSheet } from "react-native";
-import React from "react";
-import { Icon } from "@components/atoms";
-import { Button } from "@components/molecules";
-import { BottomTabsProps, TabItem } from "./BottomTabs.types";
-import Input from "@components/molecules/Input/Input";
+import { View, StyleSheet } from "react-native";
+import { Icon } from "../../atoms";
+import { Button } from "../../molecules";
+import { BottomTabsProps } from "./BottomTabs.types";
 
 export default function BottomTabs({ tabs, onTabPress }: BottomTabsProps) {
   return (

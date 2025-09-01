@@ -1,12 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { View, TextInput, StyleSheet, Animated, ActivityIndicator } from "react-native";
 
-import { Label, Icon } from "@components/atoms";
-import { Button } from "@components/molecules";
+import { Label, Icon } from "../../atoms";
+import { Button } from "../../molecules";
 
-import { defaultTheme } from "@theme/themes";
-import { useAppTheme } from "@theme/utils";
-import { getMergedStyles } from "@theme/utils";
+import { defaultTheme } from "../../../theme/themes";
+import { useAppTheme, getMergedStyles } from "../../../theme/utils";
 
 import { InputProps, InputStyleProps, InputVariant } from "./Input.types";
 import { defaultInputStyles } from "./Input.styles";
@@ -202,7 +201,7 @@ export const Input = ({
               {label}
             </Animated.Text>
           ) : (
-            <Label textStyle={styles.label}>{label}</Label>
+            <Label customStyle={styles.label}>{label}</Label>
           ))}
 
         <TextInput
@@ -219,7 +218,7 @@ export const Input = ({
         <View style={styles.iconContainer}>{renderIcon()}</View>
       </View>
 
-      {error && <Label textStyle={styles.errorText}>{error}</Label>}
+      {error && <Label customStyle={styles.errorText}>{error}</Label>}
     </View>
   );
 };

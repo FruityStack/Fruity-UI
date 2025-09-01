@@ -1,5 +1,5 @@
 import { PressableProps, ViewStyle, TextStyle } from "react-native";
-import { ThemeColors } from "@theme/types";
+import { ThemeColors } from "../../../theme/types";
 
 export type ButtonVariant = "primary" | "secondary" | "outline";
 

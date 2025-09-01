@@ -1,10 +1,8 @@
 import { View, StyleSheet } from "react-native";
-
-import { Label, Icon } from "@components/atoms";
-
+import { Label, Icon } from "../../atoms";
 import { IconLabelProps } from "./IconLabel.types";
 
-export const IconLabel = ({ iconProps, labelProps, spacing = 4, iconPosition = "left", containerStyle }: IconLabelProps) => {
+export const IconLabel: React.FC<IconLabelProps> = ({ iconProps, labelProps, spacing = 4, iconPosition = "left", containerStyle }) => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: iconPosition === "left" ? "row" : "row-reverse",

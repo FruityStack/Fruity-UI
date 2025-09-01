@@ -1,7 +1,5 @@
-// FontAwesomeIcon.tsx
-import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { defaultTheme } from "@theme/themes";
+import { defaultTheme } from "../../../../theme/themes";
 
 type FontAwesomeIconProps = {
   name: string;

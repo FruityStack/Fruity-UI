@@ -1,4 +1,4 @@
-import { Theme, ThemeColors, ThemeFontSizes, ThemeSpacing, ThemeTypography, ThemeComponents } from "@theme/types";
+import { Theme, ThemeColors, ThemeFontSizes, ThemeSpacing, ThemeTypography, ThemeComponents } from "../types";
 
 const defaultColors: ThemeColors = {
   primary: "#007AFF",

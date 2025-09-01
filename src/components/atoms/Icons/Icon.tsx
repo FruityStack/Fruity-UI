@@ -1,10 +1,8 @@
 import React, { useMemo } from "react";
 import { Animated } from "react-native";
-import { FontAwesome5, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { defaultTheme } from "@theme/themes";
-import { ThemeColors } from "@theme/types";
+import { defaultTheme } from "../../../theme/themes";
 import { iconLibraries, IconProps, IconStyleProps, IconVariant } from "./Icon.types";
-import { getMergedStyles, useAppTheme } from "@theme/utils";
+import { getMergedStyles, useAppTheme } from "../../../theme/utils";
 import { defaultIconStyles } from "./Icon.styles";
 
 const Icon = ({ library, name, animated = false, customStyles, variant, ...props }: IconProps) => {

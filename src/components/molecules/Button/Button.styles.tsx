@@ -1,5 +1,5 @@
 // Button.styles.ts
-import { Theme } from "@theme/types";
+import { Theme } from "../../../theme/types";
 import { ButtonStyleProps } from "./Button.types";
 
 export const defaultButtonStyles = (theme: Theme): ButtonStyleProps => ({

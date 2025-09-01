@@ -1,4 +1,3 @@
-import { InputStyleProps } from "@components/molecules/Input/Input.types";
 import { TextStyle } from "react-native";
 
 export interface ThemeContextType {

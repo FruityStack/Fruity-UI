@@ -5,7 +5,7 @@ import { ActivityIndicator, Pressable, Text, StyleSheet } from "react-native";
 import { ButtonProps, ButtonStyleProps, ButtonVariant } from "./Button.types";
 import { defaultButtonStyles } from "./Button.styles";
 
-import { useAppTheme, getMergedStyles } from "@theme/utils";
+import { useAppTheme, getMergedStyles } from "../../../theme/utils";
 
 const Button = ({
   children,

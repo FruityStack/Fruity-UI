@@ -1,7 +1,8 @@
 import React from "react";
 import { View, StyleSheet, ViewStyle, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Animated, { useSharedValue, useAnimatedStyle, withRepeat, withTiming, interpolate } from "react-native-reanimated";
+import { Animated } from "react-native";
+import { useSharedValue, useAnimatedStyle, withRepeat, withTiming, interpolate } from "react-native-reanimated";
 
 interface Props {
   borderRadius?: number;

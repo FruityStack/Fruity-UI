@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
-import { useAppTheme, getMergedStyles } from "@theme/utils";
+import { useAppTheme, getMergedStyles } from "../../../theme/utils";
 
 import { LabelProps, LabelStyleProps, LabelVariant } from "./Label.types";
 import { defaultLabelStyles } from "./Label.styles";
@@ -17,15 +17,13 @@ const Label = ({ children, variant = "default", numberOfLines, selectable = fals
   const styles = useMemo(
     () =>
       StyleSheet.create({
-        base: {
-          ...merged.base,
-        },
+        merged,
       }),
     [merged]
   );
 
   return (
-    <Text selectable={selectable} numberOfLines={numberOfLines} style={[styles.base]} {...props}>
+    <Text selectable={selectable} numberOfLines={numberOfLines} style={[styles.merged]} {...props}>
       {children}
     </Text>
   );

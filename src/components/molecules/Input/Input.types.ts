@@ -1,4 +1,5 @@
-import { ThemeColors } from "@theme/types";
+import { LabelStyleProps } from "../../atoms/Label/Label.types";
+import { ThemeColors } from "../../../theme/types";
 import { TextInputProps, TextStyle, ViewStyle } from "react-native";
 
 export type InputVariant = "primary" | "secondary" | "tertiary";
@@ -22,7 +23,7 @@ export interface InputStyleProps {
     labelFontSize: number;
     borderRadius: number;
   };
-  errorText: {};
+  errorText: LabelStyleProps;
 }
 
 export interface InputProps extends TextInputProps {

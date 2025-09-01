@@ -1,5 +1,5 @@
-import { Theme, ThemeColors } from "@theme/types";
-import { createTheme } from "@theme/utils";
+import { Theme, ThemeColors } from "../types";
+import { createTheme } from "../utils";
 
 const darkColors: ThemeColors = {
   primary: '#0A84FF',

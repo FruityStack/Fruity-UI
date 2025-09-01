@@ -1,5 +1,5 @@
-import { defaultTheme } from "@theme/themes";
-import { DeepPartial, Theme, ThemeColors, ThemeFontSizes, ThemeSpacing, ThemeTypography } from "@theme/types";
+import { defaultTheme } from "../../theme/themes";
+import { DeepPartial, Theme, ThemeColors, ThemeFontSizes, ThemeSpacing, ThemeTypography } from "../../theme/types";
 
 export function createTheme(customTheme: DeepPartial<Theme>): Theme {
   return {

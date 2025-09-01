@@ -1,6 +1,6 @@
 import { ViewStyle } from "react-native";
-import { ThemeColors } from "@theme/types";
-import { IconProps } from "@components/atoms/Icons/Icon.types";
+import { ThemeColors } from "../../../theme/types";
+import { IconProps } from "../../atoms/Icons/Icon.types";
 
 export interface TabItem {
   /**
