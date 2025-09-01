@@ -1,14 +1,32 @@
-import { View, StyleSheet } from "react-native";
-import { Icon } from "../../atoms";
-import { Button } from "../../molecules";
-import { BottomTabsProps } from "./BottomTabs.types";
+import { TouchableOpacity, View, StyleSheet } from "react-native";
+import React from "react";
+import { Icon } from "@components/atoms";
+import { Button } from "@components/molecules";
+import { BottomTabsProps, TabItem } from "./BottomTabs.types";
+import { useAppTheme } from "../../../theme/utils";
 
 export default function BottomTabs({ tabs, onTabPress }: BottomTabsProps) {
+  const { theme } = useAppTheme();
+
+  const containerStyle = {
+    ...styles.container,
+    backgroundColor: theme.colors.surface,
+    borderTopColor: theme.colors.textSecondary,
+    paddingVertical: theme.spacing.sm,
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={containerStyle}>
       {tabs.map((tab) => (
         <Button onPress={() => onTabPress(tab.key)} style={styles.button} key={tab.key}>
-          <Icon library={tab.iconProps?.library ?? "ionicons"} name={tab.iconProps?.name ?? ""} />
+          <Icon 
+            library={tab.iconProps?.library ?? "ionicons"} 
+            name={tab.iconProps?.name ?? ""} 
+            customStyles={{
+              color: tab.isActive ? "primary" : "textSecondary",
+              size: theme.fontSizes.xl
+            }}
+          />
         </Button>
       ))}
     </View>
@@ -19,16 +37,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "#fff",
-    paddingVertical: 10,
-    borderTopColor: "#eee",
     borderTopWidth: 1,
   },
   button: {
     alignItems: "center",
-  },
-  labelActive: {
-    color: "#4CAF50",
-    fontWeight: "bold",
   },
 });
