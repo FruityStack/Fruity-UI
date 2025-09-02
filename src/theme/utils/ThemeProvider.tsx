@@ -26,12 +26,18 @@ export const ThemeProvider: React.FC<{
     light?: DeepPartial<Theme>;
     dark?: DeepPartial<Theme>;
   };
-}> = ({ children, overrides }) => {
-  const [isDark, setIsDark] = useState(false);
+  initialMode?: "light" | "dark";
+}> = ({ children, overrides, initialMode = "light" }) => {
+  const [isDark, setIsDark] = useState(initialMode === "dark");
+
   const baseTheme = isDark ? darkTheme : defaultTheme;
   const appliedOverrides = useMemo(() => (isDark ? overrides?.dark || {} : overrides?.light || {}), [isDark, overrides?.dark, overrides?.light]);
+
   const theme = useMemo(() => deepMerge(baseTheme, appliedOverrides), [baseTheme, appliedOverrides]);
+
   const toggleTheme = useCallback(() => setIsDark((prev) => !prev), []);
+
   const contextValue = useMemo(() => ({ theme, isDark, toggleTheme }), [theme, isDark, toggleTheme]);
+
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };

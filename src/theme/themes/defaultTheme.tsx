@@ -73,6 +73,14 @@ const defaultComponents: ThemeComponents = {
       tertiary: {},
     },
   },
+  carousel: {
+    base: {},
+    variants: {
+      primary: {},
+      secondary: {},
+      tertiary: {},
+    },
+  },
 };
 
 const defaultTheme: Theme = {

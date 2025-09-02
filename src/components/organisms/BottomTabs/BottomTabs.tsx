@@ -1,45 +1,41 @@
-import { TouchableOpacity, View, StyleSheet } from "react-native";
-import React from "react";
+import { View } from "react-native";
+import React, { useMemo } from "react";
 import { Icon } from "@components/atoms";
 import { Button } from "@components/molecules";
-import { BottomTabsProps, TabItem } from "./BottomTabs.types";
+import { BottomTabsProps, TabItem, BottomTabsStyleProps } from "./BottomTabs.types";
 import { useAppTheme } from "../../../theme/utils";
+import { defaultBottomTabsStyles } from "./BottomTabs.styles";
+import { getMergedStyles } from "../../../theme/utils";
 
-export default function BottomTabs({ tabs, onTabPress }: BottomTabsProps) {
+export default function BottomTabs({ tabs, onTabPress, customStyles }: BottomTabsProps & { customStyles?: Partial<BottomTabsStyleProps> }) {
   const { theme } = useAppTheme();
 
-  const containerStyle = {
-    ...styles.container,
-    backgroundColor: theme.colors.surface,
-    borderTopColor: theme.colors.textSecondary,
-    paddingVertical: theme.spacing.sm,
-  };
+  const mergedStyles = useMemo(
+    () => getMergedStyles<BottomTabsStyleProps>(
+      theme,
+      "BottomTabs",
+      defaultBottomTabsStyles(theme),
+      undefined,
+      customStyles
+    ),
+    [theme, customStyles]
+  );
 
   return (
-    <View style={containerStyle}>
+    <View style={mergedStyles.container}>
       {tabs.map((tab) => (
-        <Button onPress={() => onTabPress(tab.key)} style={styles.button} key={tab.key}>
+        <Button 
+          onPress={() => onTabPress(tab.key)} 
+          style={mergedStyles.button} 
+          key={tab.key}
+        >
           <Icon 
             library={tab.iconProps?.library ?? "ionicons"} 
             name={tab.iconProps?.name ?? ""} 
-            customStyles={{
-              color: tab.isActive ? "primary" : "textSecondary",
-              size: theme.fontSizes.xl
-            }}
+            customStyles={tab.isActive ? mergedStyles.activeIcon : mergedStyles.icon}
           />
         </Button>
       ))}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    borderTopWidth: 1,
-  },
-  button: {
-    alignItems: "center",
-  },
-});

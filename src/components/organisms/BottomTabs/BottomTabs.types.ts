@@ -1,6 +1,5 @@
 import { ViewStyle } from "react-native";
-import { ThemeColors } from "../../../theme/types";
-import { IconProps } from "../../atoms/Icons/Icon.types";
+import { IconProps, IconStyleProps } from "../../atoms/Icons/Icon.types";
 
 export interface TabItem {
   /**
@@ -31,29 +30,24 @@ export interface TabItem {
 
 export interface BottomTabsStyleProps {
   /**
-   * Background color of the bottom tabs container
+   * Container styles for the bottom tabs
    */
-  backgroundColor?: keyof ThemeColors;
+  container: ViewStyle;
 
   /**
-   * Height of the bottom tabs container
+   * Styles for each tab button
    */
-  height?: number;
+  button: ViewStyle;
 
   /**
-   * Whether to show a border on top of the tabs
+   * Styles for the inactive icon
    */
-  showBorder?: boolean;
+  icon: IconStyleProps;
 
   /**
-   * Color of the top border (if shown)
+   * Styles for the active icon
    */
-  borderColor?: keyof ThemeColors;
-
-  /**
-   * Additional container style properties
-   */
-  containerStyle?: ViewStyle;
+  activeIcon: IconStyleProps;
 }
 
 export interface BottomTabsProps {
