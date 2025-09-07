@@ -10,7 +10,7 @@ import { useAppTheme, getMergedStyles } from "../../../theme/utils";
 import { InputProps, InputStyleProps, InputVariant } from "./Input.types";
 import { defaultInputStyles } from "./Input.styles";
 
-export const Input = ({
+const Input = ({
   variant = "primary",
   value,
   label,

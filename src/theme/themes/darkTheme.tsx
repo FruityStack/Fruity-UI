@@ -1,3 +1,4 @@
+import { WeekCalendarDarkTheme } from "@theme/components/weekCalendar";
 import { Theme, ThemeColors } from "../types";
 import { createTheme } from "../utils";
 
@@ -14,8 +15,20 @@ const darkColors: ThemeColors = {
   success: '#30D158'
 };
 
-const darkTheme: Theme = createTheme({
-  colors: darkColors
+const baseDarkTheme = createTheme({
+  colors: darkColors,
 });
+
+const darkComponents: Partial<Theme["components"]> = {
+  WeekCalendar: WeekCalendarDarkTheme(baseDarkTheme)
+}
+
+const darkTheme: Theme = {
+  ...baseDarkTheme,
+  components: {
+    ...baseDarkTheme.components,
+    ...darkComponents
+  }
+};
 
 export default darkTheme;

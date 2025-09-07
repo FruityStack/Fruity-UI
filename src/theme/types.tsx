@@ -21,6 +21,7 @@ export interface ThemeColors {
 }
 
 export interface ThemeFontSizes {
+  xxs: number;
   xs: number;
   sm: number;
   md: number;
@@ -31,6 +32,7 @@ export interface ThemeFontSizes {
 }
 
 export interface ThemeSpacing {
+  xxs: number;
   xs: number;
   sm: number;
   md: number;
@@ -49,6 +51,11 @@ export interface ThemeTypography {
   [key: string]: TextStyle;
 }
 
+export interface ThemeFontFamily {
+  fontFamily: string;
+  [key: string]: string;
+}
+
 export type ComponentConfig<TStyles, TVariant extends string = string> = {
   base?: Partial<TStyles>;
   variants?: Partial<Record<TVariant, Partial<TStyles>>>;
@@ -64,7 +71,9 @@ export interface Theme {
   fontSizes: ThemeFontSizes;
   spacing: ThemeSpacing;
   typography: ThemeTypography;
+  fontFamily: ThemeFontFamily;
   components?: ThemeComponents; 
+  
 }
 
 export type DeepPartial<T> = {

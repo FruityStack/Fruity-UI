@@ -15,7 +15,6 @@ const getMergedStyles = <
   variant?: TVariant,
   customStyle?: Partial<TStyles>
 ): TStyles => {
-  console.log(React.version);
   const comp = theme.components?.[componentKey] as ComponentConfig<TStyles, TVariant> | undefined;
 
   const fromBase = comp?.base ?? {};

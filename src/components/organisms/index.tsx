@@ -3,5 +3,5 @@ export { type TabItem } from "./BottomTabs/BottomTabs.types";
 export { default as BentoGrid } from "./BentoGrid/BentoGrid";
 export { default as BentoItem } from "./BentoGrid/BentoItem";
 export type { BentoGridProps } from "./BentoGrid/BentoGrid.types";
-export { default as FullCalendar } from "./Calendar/FullCalendar";
-export { default as WeekCalendar } from "./Calendar/WeekCalendar";
+export { default as FullCalendar } from "./Calendar/FullCalendar/FullCalendar";
+export { default as WeekCalendar } from "./Calendar/WeekCalendar/WeekCalendar";

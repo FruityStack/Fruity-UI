@@ -1,4 +1,7 @@
-import { Theme, ThemeColors, ThemeFontSizes, ThemeSpacing, ThemeTypography, ThemeComponents } from "../types";
+import { InputDefaultTheme } from "@theme/components/input";
+import { Theme, ThemeColors, ThemeFontSizes, ThemeSpacing, ThemeTypography, ThemeComponents, ThemeFontFamily } from "../types";
+import { CarouselDefaultTheme } from "@theme/components/carousel";
+import { WeekCalendarDefaultTheme } from "@theme/components/weekCalendar";
 
 const defaultColors: ThemeColors = {
   primary: "#007AFF",
@@ -14,6 +17,7 @@ const defaultColors: ThemeColors = {
 };
 
 const defaultFontSizes: ThemeFontSizes = {
+  xxs: 10,
   xs: 12,
   sm: 14,
   md: 16,
@@ -23,11 +27,16 @@ const defaultFontSizes: ThemeFontSizes = {
 };
 
 const defaultSpacing: ThemeSpacing = {
+  xxs: 2,
   xs: 4,
   sm: 8,
   md: 16,
   lg: 24,
   xl: 32,
+};
+
+const defaultFontFamily: ThemeFontFamily = {
+  fontFamily: "System",
 };
 
 const defaultTypography: ThemeTypography = {
@@ -61,34 +70,23 @@ const defaultTypography: ThemeTypography = {
   },
 };
 
-const defaultComponents: ThemeComponents = {
-  Input: {
-    base: {
-      borderRadius: 0,
-      padding: 0,
-    },
-    variants: {
-      primary: {},
-      secondary: {},
-      tertiary: {},
-    },
-  },
-  carousel: {
-    base: {},
-    variants: {
-      primary: {},
-      secondary: {},
-      tertiary: {},
-    },
-  },
-};
+const defaultComponents = (theme: Theme): ThemeComponents => ({
+  Input: InputDefaultTheme,
+  Carousel: CarouselDefaultTheme,
+  WeekCalendar: WeekCalendarDefaultTheme(theme),
+});
 
-const defaultTheme: Theme = {
+const baseTheme: Omit<Theme, 'components'> = {
   colors: defaultColors,
   fontSizes: defaultFontSizes,
   spacing: defaultSpacing,
   typography: defaultTypography,
-  components: defaultComponents,
+  fontFamily: defaultFontFamily,
+};
+
+const defaultTheme: Theme = {
+  ...baseTheme,
+  components: defaultComponents(baseTheme as Theme),
 };
 
 export default defaultTheme;
