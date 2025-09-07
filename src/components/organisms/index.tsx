@@ -5,3 +5,7 @@ export { default as BentoItem } from "./BentoGrid/BentoItem";
 export type { BentoGridProps } from "./BentoGrid/BentoGrid.types";
 export { default as FullCalendar } from "./Calendar/FullCalendar";
 export { default as WeekCalendar } from "./Calendar/WeekCalendar";
+export { default as Modal } from "./Modal/Modal";
+export type { ModalProps } from "./Modal/Modal.types";
+export { default as PlanCreationModal } from "./PlanCreationModal/PlanCreationModal";
+export type { PlanCreationModalProps, PlanFormData } from "./PlanCreationModal/PlanCreationModal.types";
