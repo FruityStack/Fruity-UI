@@ -8,9 +8,6 @@ import BentoItem, { BentoItemProps } from "./BentoItem";
 const BentoGrid: React.FC<BentoGridProps> = ({ children, gridMargin = 16, gridGap = 12, gridColumns = 3, customStyles }) => {
   const { theme } = useAppTheme();
   const { width: screenWidth } = useWindowDimensions();
-  
-  const occupiedPositions = React.useRef<{ [key: string]: boolean }>({});
-
   const availableWidth = screenWidth - gridMargin * 2;
   const itemBaseWidth = (availableWidth - gridGap * (gridColumns - 1)) / gridColumns;
 
@@ -31,13 +28,13 @@ const BentoGrid: React.FC<BentoGridProps> = ({ children, gridMargin = 16, gridGa
     [merged]
   );
 
-  React.useEffect(() => {
-    occupiedPositions.current = {};
-  }, [children, theme.colors.surface, screenWidth, gridColumns, gridGap]);
+  const occupiedPositions = useMemo(() => {
+    return { current: {} as { [key: string]: boolean } };
+  }, [children, theme, screenWidth, gridColumns, gridGap]);
 
   const getBentoItemStyle = (child: React.ReactElement<BentoItemProps>) => {
     const { width, height, style } = child.props;
-    
+
     const itemW = width * itemBaseWidth + (width - 1) * gridGap;
     const itemH = height * itemBaseWidth + (height - 1) * gridGap;
 
